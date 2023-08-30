@@ -1,0 +1,42 @@
+/* IMPORTS FROM UTILS */
+@import "./utils/variables";
+@import "./utils/mixins";
+
+/* IMPORTS FROM COMPONENTS */
+@import "./components/navbar";
+@import "./components/carCard";
+
+/* IMPORTS FROM PAGES */
+@import "./pages/signup";
+@import "./pages/404";
+@import "./pages/home";
+@import "./pages/oneCar";
+@import "./pages/createCar";
+
+//BASE SETUP
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: $font-primary;
+}
+
+html {
+  font-weight: 500;
+  box-sizing: border-box;
+
+  @include respond-to("phone") {
+    font-size: 60%;
+  }
+  @include respond-to("tablet") {
+    font-size: 75%;
+  }
+  @include respond-to("laptop") {
+    font-size: 90%;
+  }
+  @include respond-to("desktop") {
+    font-size: 100%;
+  }
+}

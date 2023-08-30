@@ -1,0 +1,67 @@
+#create-car,
+#update-car {
+  @include flex(row, center, baseline);
+  padding-top: 5rem;
+
+  form {
+    @include flex(column, center, center);
+    gap: 1rem;
+
+    select {
+      padding: 1rem 2rem;
+      color: rgba(0, 0, 0, 0.5);
+      border: 1px solid $color-secondary;
+      font-family: $font-primary;
+      font-weight: 500;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      padding: 1rem 2rem;
+      border: 1px solid $color-secondary;
+      color: rgba(0, 0, 0, 0.5);
+      font-family: $font-primary;
+      font-weight: 500;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input[type="file"]::file-selector-button {
+      border: none;
+      padding: 10px 20px;
+      background: $color-primary;
+      color: $color-tetriary;
+      font-family: $font-primary;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color-primary, 0.8);
+      }
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-family: $font-primary;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      background-color: $color-primary;
+      color: $color-tetriary;
+      border: none;
+      width: 100%;
+
+      &:hover {
+        background-color: rgba($color-primary, 0.8);
+      }
+    }
+  }
+}

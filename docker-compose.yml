@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  server:
+    image: server:v1.0
+    build:
+      context: ./server
+    ports:
+      - 5000:5000
+    environment:
+      - DB_URL=mongodb://mongodb:27017/
+    networks:
+      - asp-network
+    depends_on:
+      - mongodb
+
+  client:
+    image: client:v1.0
+    build:
+      context: ./client
+    volumes:
+      - static-files:/app/build
+    networks:
+      - asp-network
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27018:27017
+    networks:
+      - asp-network
+    volumes:
+      - mongodb-data:/data/db
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static-files:/usr/share/nginx/html
+    networks:
+      - asp-network
+    depends_on:
+      - server
+      - client
+
+networks:
+  asp-network:
+    driver: bridge
+
+volumes:
+  static-files:
+  mongodb-data:

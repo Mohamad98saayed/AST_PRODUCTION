@@ -1,0 +1,57 @@
+#_404 {
+  @include flex(column, center, center);
+  height: calc(100vh - 5rem);
+  gap: 1rem;
+
+  h1 {
+    font-size: 10rem;
+
+    span {
+      color: $color-tetriary;
+
+      &:last-child {
+        margin-left: 1rem;
+        display: inline-block;
+        color: black;
+        animation: rotate 1s ease forwards;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.5);
+    max-width: 30rem;
+    text-align: center;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    background-color: $color-primary;
+    color: $color-tetriary;
+    border: none;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.8);
+    }
+  }
+}
+
+/* ANIMATIONS */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(45deg);
+  }
+}
