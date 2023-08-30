@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('build and deploy') {
       steps {
-        sh 'sh "docker-compose -p down"'
-        sh 'sh "docker-compose -p build"'
-        sh 'sh "docker-compose -p up"'
+        sh 'docker compose down'
+        sh 'docker compose build'
+        sh 'docker compose up'
       }
     }
 
